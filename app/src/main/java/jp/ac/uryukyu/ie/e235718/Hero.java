@@ -9,10 +9,10 @@ package jp.ac.uryukyu.ie.e235718;
  * Created by tnal on 2016/11/13.
  */
 public class Hero {
-    public String name;
-    public int hitPoint;
-    public int attack;
-    public boolean dead;
+    private String name;
+    private int hitPoint;
+    private int attack;
+    private boolean dead;
 
     /**
      * コンストラクタ。名前、最大HP、攻撃力を指定する。
@@ -20,12 +20,33 @@ public class Hero {
      * @param maximumHP ヒーローのHP
      * @param attack ヒーローの攻撃力
      */
-    public Hero (String name, int maximumHP, int attack) {
-        this.name = name;
-        hitPoint = maximumHP;
-        this.attack = attack;
-        dead = false;
-        System.out.printf("%sのHPは%d。攻撃力は%dです。\n", name, maximumHP, attack);
+    public Hero (String _name, int _maximumHP, int _attack) {
+        this.setName(_name);
+        this.setHitPoint(_maximumHP);
+        this.setAttack(_attack);
+        this.setDead(this.dead);
+        System.out.printf("%sのHPは%d。攻撃力は%dです。\n", _name, _maximumHP, _attack);
+    }
+
+    public void setName(String _name){ this.name = _name; }
+    public void setHitPoint(int _maximumHP){ this.hitPoint = _maximumHP; }
+    public void setAttack(int _attack){ this.attack = _attack; }
+    public void setDead(boolean _dead){ this.dead = _dead; }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public int getHitPoint(){
+        return this.hitPoint;
+    }
+
+    public int getAttack(){
+        return this.attack;
+    }
+    
+    public boolean getDead(){
+        return this.dead;
     }
 
     /**
@@ -35,7 +56,7 @@ public class Hero {
      */
     public void attack(Enemy e){
         int damage = (int)(Math.random() * attack);
-        System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", name, e.name, damage);
+        System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", this.name, e.getName(), damage);
         e.wounded(damage);
     }
 
@@ -48,7 +69,7 @@ public class Hero {
         hitPoint -= damage;
         if( hitPoint < 0 ) {
             dead = true;
-            System.out.printf("勇者%sは道半ばで力尽きてしまった。\n", name);
+            System.out.printf("勇者%sは道半ばで力尽きてしまった。\n", this.name);
         }
     }
 }
