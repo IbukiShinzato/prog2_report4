@@ -22,6 +22,18 @@ public class LivingThing {
         return this.name;
     }
 
+    public int getHitPoint(){
+        return this.hitPoint;
+    }
+
+    // public int getHitPoint(){
+    //     return this.hitPoint;
+    // }
+
+    // getHitPoint
+    // return type: int
+    // args: None
+
     public void attack(LivingThing opponent){
         if ( this.dead == false ){
             int damage = (int)(Math.random() * this.attack);
