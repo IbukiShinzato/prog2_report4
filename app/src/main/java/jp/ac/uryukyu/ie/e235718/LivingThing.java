@@ -1,38 +1,50 @@
 package jp.ac.uryukyu.ie.e235718;
 
 public class LivingThing {
-    String name;
-    int hitPoint;
-    int attack;
-    boolean dead;
+    private String name;
+    private int hitPoint;
+    private int attack;
+    private boolean dead;
 
     public LivingThing(String _name, int _hitPoint, int _attack){
-        this.name = _name;
-        this.hitPoint = _hitPoint;
-        this.attack = _attack;
-        this.dead = false;
+        this.setName(_name);
+        this.setHitPoint(_hitPoint);
+        this.setAttack(_attack);
+        this.setDead(false);
         System.out.printf("%sのHPは%d。攻撃力は%dです。\n", _name, _hitPoint, _attack);
     }
 
-    public boolean isDead(){
-        return this.dead;
+    public void setName(String _name) {
+        this.name = _name;
     }
 
-    public String getName(){
+    public String getName() {
         return this.name;
+    }
+
+    public void setHitPoint(int _hitPoint) {
+        this.hitPoint = _hitPoint;
     }
 
     public int getHitPoint(){
         return this.hitPoint;
     }
 
-    // public int getHitPoint(){
-    //     return this.hitPoint;
-    // }
+    public void setAttack(int _attack) {
+        this.attack = _attack;
+    }
 
-    // getHitPoint
-    // return type: int
-    // args: None
+    public int getAttack() {
+        return this.attack;
+    }
+
+    public void setDead(boolean _dead) {
+        this.dead = _dead;
+    }
+
+    public boolean isDead(){
+        return this.dead;
+    }
 
     public void attack(LivingThing opponent){
         if ( this.dead == false ){
@@ -43,9 +55,9 @@ public class LivingThing {
     }
 
     public void wounded(int damage){
-        hitPoint -= damage;
-        if( hitPoint < 0 ) {
-            dead = true;
+        this.hitPoint -= damage;
+        if( this.hitPoint < 0 ) {
+            this.dead = true;
             System.out.printf("%sは倒れた。\n", this.name);
         }
     }

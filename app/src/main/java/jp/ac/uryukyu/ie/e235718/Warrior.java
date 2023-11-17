@@ -6,9 +6,9 @@ public class Warrior extends Hero {
     }
 
     public void attackWithWeponSkill(LivingThing opponent){
-        if( this.dead == false ){
-            int damage = (int)(attack * 1.5);
-            System.out.printf("%sの攻撃！ウェポンスキルを発動！%sに%dのダメージを与えた！！", name, opponent.name, damage);
+        if( this.isDead() == false ){
+            int damage = (int)(opponent.getAttack() * 1.5);
+            System.out.printf("%sの攻撃！ウェポンスキルを発動！%sに%dのダメージを与えた！！", getName(), opponent.getName(), damage);
             opponent.wounded(damage);
         }
     }
