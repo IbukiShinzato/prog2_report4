@@ -16,7 +16,7 @@ class WarriorTest {
     void attackWithWeponSkillTest() {
         int attack = 100;
         Warrior demoWarrior = new Warrior("デモ戦士", 100, attack);
-        Enemy slime = new Enemy("スライムもどき", 10, 100);
+        Enemy slime = new Enemy("スライムもどき", 10, 10);
         int weponSkillAttack = (int)(attack*1.5);
         int nowEnemyHp;
         for(int i = 0; i < 3; i++){
